@@ -486,7 +486,7 @@ function outputRecords($output){
           //output to csv
           //remove <BR's> from csv output
           $problems = preg_replace('#(<br */?>\s*)+#i', '', $output[$key]['problem_list'] ); //remove
-            <em 's> from csv output
+          // remove <em 's> from csv output
           $problems = preg_replace('#(<em */?>\s*)+#i', '', $problems); $problems = preg_replace('#(</em */?>\s*)+#i', '', $problems); fputcsv($csv_file, array($output[$key]['correct_location'],
             $output[$key]['call_number'], $output[$key]['norm_call_number'], $output[$key]['title'], $output[$key]['scanned_location'],$problems,"=\""
             . $output[$key]['barcode'] ."\"" )); } echo "</tbody>"; echo "</table>"; // Close the output CSV file fclose($csv_file);
