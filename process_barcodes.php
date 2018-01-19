@@ -401,7 +401,7 @@ if (isset($_POST['submit'])) {
         echo "</p>";
         echo "<div class='row'>";
         $csv_output_filename = 'ShelfList_' . $_POST['library'] . '_' . $_POST['location'] . '_' . substr($first_call, 0, 4) . '_' . substr($last_call, 0, 4) . '_' . date('Ymd') . '.csv';
-          echo "<div class='col-md-6'><a href=" . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php" . "> Run New File</a></div> <div class='col-md-6'><a class='btn btn-primary' href='cache/output/" . $csv_output_filename . "'>Download File</a> " . $csv_output_filename . "</div>";
+          echo "<div class='col-md-6'><a class='btn btn-sm btn-info' href=" . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php" . ">Run New File</a></div> <div class='col-md-6'><a class='btn btn-sm btn-info' href='cache/output/" . $csv_output_filename . "'>Download File</a> " . $csv_output_filename . "</div>";
         echo "</div>";
         echo "<table class='table table-hover table-bordered table-condensed'><tr><td>";
         echo '<B>' . $orderProblemCount . '</b> Order Problems Found</td>';
