@@ -475,11 +475,11 @@ function outputRecords($output){
   }
 
 
-          echo "<td>" . $output[$key]['correct_location'] . "</td>";
+          echo "<td class='text-center'>" . $output[$key]['correct_location'] . "</td>";
           echo "<td>" . $output[$key]['call_number'] . "</td>";
           //          echo "<td>" . $output[$key]['norm_call_number'] . "</td>";
           echo "<td>" . $output[$key]['title'] . "</td>";
-          echo "<td>" . $output[$key]['scanned_location']  . "</td>";
+          echo "<td class='text-center'>" . $output[$key]['scanned_location']  . "</td>";
           echo "<td>" . $output[$key]['problem_list'] . "</td>";
           echo "<td>" . $output[$key]['barcode']   . "</td>";
           echo "</tr>";
