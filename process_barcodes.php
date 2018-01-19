@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../inventory/reformed/js/jquery.tablesorter.js"></script>
-<script type="text/javascript">
-    $(document).ready(function()
-    {
-        $("#CNTable").tablesorter();
-    }
-);
-</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#CNTable").tablesorter();
+        });
+    </script>
 
     <style type="text/css">
         body {
@@ -27,10 +26,11 @@
         }
     </style>
 </head>
-<body>
-  <div class="container">
 
-<?php
+<body>
+    <div class="container">
+
+        <?php
 
 //pre($_POST);
 //Include XLSX Reader
@@ -485,19 +485,14 @@ function outputRecords($output){
           echo "</tr>";
           //output to csv
           //remove <BR's> from csv output
-          $problems = preg_replace('#(<br */?>\s*)+#i', '', $output[$key]['problem_list'] );
-          //remove <em's> from csv output
-          $problems = preg_replace('#(<em */?>\s*)+#i', '', $problems);
-          $problems = preg_replace('#(</em */?>\s*)+#i', '', $problems);
-          fputcsv($csv_file, array($output[$key]['correct_location'], $output[$key]['call_number'], $output[$key]['norm_call_number'], $output[$key]['title'], $output[$key]['scanned_location'],$problems,"=\"" . $output[$key]['barcode'] ."\"" ));
-
-  }
-  echo "</tbody>";
-  echo "</table>";
-  // Close the output CSV file
-      fclose($csv_file);
-}
-?>
-</div> <!-- /container -->
+          $problems = preg_replace('#(<br */?>\s*)+#i', '', $output[$key]['problem_list'] ); //remove
+            <em 's> from csv output
+          $problems = preg_replace('#(<em */?>\s*)+#i', '', $problems); $problems = preg_replace('#(</em */?>\s*)+#i', '', $problems); fputcsv($csv_file, array($output[$key]['correct_location'],
+            $output[$key]['call_number'], $output[$key]['norm_call_number'], $output[$key]['title'], $output[$key]['scanned_location'],$problems,"=\""
+            . $output[$key]['barcode'] ."\"" )); } echo "</tbody>"; echo "</table>"; // Close the output CSV file fclose($csv_file);
+            } ?>
+    </div>
+    <!-- /container -->
 </body>
+
 </html>

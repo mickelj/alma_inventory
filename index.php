@@ -13,8 +13,8 @@ if(!isset($_SESSION))
     <!--
   	First, include the main jQuery and jQuery UI javascripts (not included with reformed; you may use Google's CDN links as below:)
   -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
   <!--
   	Next, include links to the form's CSS, taking care to ensure the correct paths dependent upon where you have uploaded the files
@@ -496,9 +496,6 @@ echo "<option value=$library->code>$library->name</option>";
     			<dd>
     				<select size="1" name="itemType" id="itemType" class="required">
     					<option value="BOOK">Book</option>
-    					<option value="PERIODICAL">Periodical</option>
-              <option value="DVD">DVD</option>
-    					<option value="THESIS">Thesis</option>
     				</select>
     			</dd>
     		</dl>

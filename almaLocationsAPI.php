@@ -7,7 +7,7 @@ $url = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/'. $lib
 $templateParamNames = array('$lib_id');
 $templateParamValues = array(urlencode('hsse'));
 $url = str_replace($templateParamNames, $templateParamValues, $url);
-$queryParams = '?' . urlencode('lang') . '=' . urlencode('en') . '&' . urlencode('apikey') . '=' . urlencode('*YOUR KEY HERE*');
+$queryParams = '?' . urlencode('lang') . '=' . urlencode('en') . '&' . urlencode('apikey') . '=' . urlencode('l7xx5d5a73b36c5b415b92cd8a1406550647');
 curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($ch, CURLOPT_HEADER, FALSE);
