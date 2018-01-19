@@ -13,8 +13,10 @@ if(!isset($_SESSION))
     <!--
   	First, include the main jQuery and jQuery UI javascripts (not included with reformed; you may use Google's CDN links as below:)
   -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
 
   <!--
   	Next, include links to the form's CSS, taking care to ensure the correct paths dependent upon where you have uploaded the files
@@ -28,9 +30,9 @@ if(!isset($_SESSION))
   <!--[if IE]>
       <link rel="stylesheet" type="text/css" href="reformed/css/ie_fieldset_fix.css" />
   <![endif]-->
-  <link rel="stylesheet" href="reformed/css/uniform.aristo.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="reformed/css/uniform.aristo.css" type="text/css" />
   <link rel="stylesheet" href="reformed/css/ui.reformed.css" type="text/css" />
-  <link rel="stylesheet" href="reformed/css/jquery-ui-1.8.7.custom.css" type="text/css" />
+  <link rel="stylesheet" href="reformed/css/jquery-ui-1.8.7.custom.css" type="text/css" /> -->
   <!-- end necessary reformed CSS -->
 
   <!--
@@ -41,9 +43,9 @@ if(!isset($_SESSION))
   	and replace YOURFORMID with the actual id attribute's value of your form (e.g., "demo" below).
   -->
   <!-- necessary reformed js -->
-  <script src="reformed/js/jquery.uniform.min.js" type="text/javascript"></script>
+  <!-- <script src="reformed/js/jquery.uniform.min.js" type="text/javascript"></script>
   <script src="reformed/js/jquery.validate.min.js" type="text/javascript"></script>
-  <script src="reformed/js/jquery.ui.reformed.min.js" type="text/javascript"></script>
+  <script src="reformed/js/jquery.ui.reformed.min.js" type="text/javascript"></script> -->
 
   <script type="text/javascript">
   $(function(){ //on doc ready
