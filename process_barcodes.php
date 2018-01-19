@@ -300,7 +300,7 @@ if (isset($_POST['submit'])) {
                 }
 
                 if ($sortednk[$key]['status'] != 1) {
-                    $nipProblem = "**NIP: " . $sortednk[$key]['process_type'] . "**<BR>";
+                    $nipProblem = "**NOT IN PLACE: " . $sortednk[$key]['process_type'] . "**<BR>";
                     $problem = true;
                 } else {
                     $nipProblem = '';
@@ -377,7 +377,7 @@ if (isset($_POST['submit'])) {
           	$shelflist_obj->correct_location = $correct_loc;
           	$shelflist_obj->call_number = $sortednk[$key]['call_number'];
             $shelflist_obj->norm_call_number = $sortednk[$key]['call_sort'];
-            $shelflist_obj->title = utf8_encode (substr($sortednk[$key]['title'], 0, 20) . '...');
+            $shelflist_obj->title = utf8_encode (substr($sortednk[$key]['title'], 0, 40) . '...');
             $shelflist_obj->scanned_location = $scan_loc;
             $shelflist_obj->problem_list = $orderProblem . $cnTypeProblem . $nipProblem . $tempProblem . $libraryProblem . $locationProblem . $policyProblem . $typeProblem;
             $shelflist_obj->barcode = $sortednk[$key]['item_barcode'];
@@ -401,9 +401,9 @@ if (isset($_POST['submit'])) {
         echo "</p>";
         echo "<div class='row'>";
         $csv_output_filename = 'ShelfList_' . $_POST['library'] . '_' . $_POST['location'] . '_' . substr($first_call, 0, 4) . '_' . substr($last_call, 0, 4) . '_' . date('Ymd') . '.csv';
-          echo "<div class='col-md-4'><a href=" . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php" . "> Run New File</a></div> <div class='col-md-4'><a href=cache/output/" . $csv_output_filename . ">Download File: " . $csv_output_filename . "</a></div>";
+          echo "<div class='col-md-6'><a href=" . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php" . "> Run New File</a></div> <div class='col-md-6'><a class='btn btn-primary' href='cache/output/" . $csv_output_filename . "'>Download File</a> " . $csv_output_filename . "</div>";
         echo "</div>";
-        echo "<table style='width: auto;' class='table table-hover table-bordered table-condensed'><tr><td>";
+        echo "<table class='table table-hover table-bordered table-condensed'><tr><td>";
         echo '<B>' . $orderProblemCount . '</b> Order Problems Found</td>';
         echo '<td>' . $cnTypeProblemCount . '</b> Call Number Type Problems Found</td>';
         echo '<td>' . $tempProblemCount . '</b> Temp Location Problems Found</td>';
@@ -448,7 +448,7 @@ function outputRecords($output){
 // save the CSV column headers
   fputcsv($csv_file, array('Correct_Position', 'Call_Number', 'norm_call_number','Title', 'Position Scanned', 'Problem', 'Barcode'));
 
-  echo "<table id='CNTable' style='width: auto;' class='table table-hover table-striped table-bordered table-condensed tablesorter'>";
+  echo "<table id='CNTable' class='table table-hover table-striped table-bordered table-condensed tablesorter'>";
   echo "<thead>";
   echo "<tr>";
   echo "<th>Correct<BR>Order</th>";
