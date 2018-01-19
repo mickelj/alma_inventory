@@ -431,6 +431,8 @@ p[data-value]:after {
     	<form method="post" name="ShelfLister" id="ShelfLister" action="<?php echo 'http://' . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']) . '/process_barcodes.php'; ?>" enctype="multipart/form-data">
 			<input type="hidden" name="cnType" value="lc">
 			<input type="hidden" name="itemType" value="BOOK">
+			<input type="hidden" name="policy" value="UniqueLocations">
+			<input type="hidden" name="location" value="USTACKS">
 			<dl>
     			<dt>
     				<label for="flie">Barcode XLSX FIle:</label>
@@ -445,19 +447,6 @@ p[data-value]:after {
     				<select size="1" name="library" id="library" class="required"  onchange=AjaxFunction();>
 							<option value="UNIV">Leyburn Library</option>
 							<option value="SCI">Telford Science Library</option>
-    				</select>
-    			</dd>
-    		</dl>
-        <dl>
-    			<dt>
-    				<label for="itemType">Primary Policy<BR> Type for Scanned Location</label>
-    			</dt>
-    			<dd>
-    				<select size="1" name="policy" id="policy" class="required">
-    					<option value="core">Core</option>
-    					<option value="reserve">Reserve</option>
-              <option value="cont lit">Contemporary Lit</option>
-    					<option value="media">Media</option>
     				</select>
     			</dd>
     		</dl>
