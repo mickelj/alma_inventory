@@ -1,3 +1,11 @@
 .spacer {
 	margin-top: 2rem;
 }
+
+.bordered {
+	border: 1px solid #ddd;
+}
+
+.bordered a {
+	margin-right: 1.5rem;
+}
