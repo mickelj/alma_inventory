@@ -429,7 +429,9 @@ p[data-value]:after {
     <div class="reformed-form">
       <h1>Inventory Report <small>Fill in form and submit</small></h1>
     	<form method="post" name="ShelfLister" id="ShelfLister" action="<?php echo 'https://' . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']) . '/process_barcodes.php'; ?>" enctype="multipart/form-data">
-    		<dl>
+			<input type="hidden" name="cnType" value="lc">
+			<input type="hidden" name="itemType" value="BOOK">
+			<dl>
     			<dt>
     				<label for="flie">Barcode XLSX FIle:</label>
     			</dt>
@@ -437,65 +439,12 @@ p[data-value]:after {
     		</dl>
     		<dl>
     			<dt>
-    				<label for="cnType">Call Number<BR> Type</label>
-    			</dt>
-    			<dd>
-    				<ul>
-    					<li><input type="radio" class="required" id="cnType" name="cnType" value="lc" checked="checked" />
-    						<label>LC</label>
-    					</li>
-    					<li><input type="radio" class="required" id="cnType" name="cnType" value="dewey" />
-    						<label>Dewey</label>
-    					</li>
-    					<li><input type="radio" class="required" id="cnType" name="cnType" value="other" />
-    						<label>Other</label>
-    					</li>
-    				</ul>
-    						</dd>
-    		</dl>
-    		<dl>
-    			<dt>
     				<label for="library">Library</label>
     			</dt>
     			<dd>
     				<select size="1" name="library" id="library" class="required"  onchange=AjaxFunction();>
-              <?Php
-$ch = curl_init();
-$url = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries';
-$queryParams = '?' . urlencode('lang') . '=' . urlencode('en') . '&' . urlencode('apikey') . '=' . urlencode('*YOUR KEY HERE*');
-curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-curl_setopt($ch, CURLOPT_HEADER, FALSE);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-$response = curl_exec($ch);
-curl_close($ch);
-
-$xml_result = simplexml_load_string($response);
-// PARSE RESULTS
-	foreach($xml_result->library as $library)
-	{
-echo "<option value=$library->code>$library->name</option>";
-}
-?>
-    				</select>
-    			</dd>
-    		</dl>
-    		<dl>
-    			<dt>
-    				<label for="location">Scan Location</label>
-    			</dt>
-    			<dd>
-    				<select size="1" name="location" id="location" class="required">
-    				</select>
-    			</dd>
-    		</dl>
-    		<dl>
-    			<dt>
-    				<label for="itemType">Primary Item<BR> Type for Scanned Location</label>
-    			</dt>
-    			<dd>
-    				<select size="1" name="itemType" id="itemType" class="required">
-    					<option value="BOOK">Book</option>
+							<option value="UNIV">Leyburn Library</option>
+							<option value="SCI">Telford Science Library</option>
     				</select>
     			</dd>
     		</dl>
@@ -517,60 +466,45 @@ echo "<option value=$library->code>$library->name</option>";
     				<label for="cnType">Only Report<BR>CN Order Problems?</label>
     			</dt>
     			<dd>
-    				<ul>
-    					<li><input type="radio" class="required" id="onlyOrder" name="onlyorder" value="false" checked="checked" />
-    						<label>No</label>
-    					</li>
-    					<li><input type="radio" class="required" id="onlyOrder" name="onlyorder" value="true" />
-    						<label>Yes</label>
-    					</li>
-    				</ul>
-    						</dd>
+    				<input type="radio" class="required" id="onlyOrder" name="onlyorder" value="false" checked="checked" />
+    				<label>No</label>
+    				<input type="radio" class="required" id="onlyOrder" name="onlyorder" value="true" />
+    				<label>Yes</label>
+					</dd>
     		</dl>
         <dl>
     			<dt>
     				<label for="cnType">Only Report<BR>Problems Other Than CN?</label>
     			</dt>
     			<dd>
-    				<ul>
-    					<li><input type="radio" class="required" id="onlyOrder" name="onlyother" value="false" checked="checked" />
-    						<label>No</label>
-    					</li>
-    					<li><input type="radio" class="required" id="onlyOrder" name="onlyother" value="true" />
-    						<label>Yes</label>
-    					</li>
-    				</ul>
-    						</dd>
+    				<input type="radio" class="required" id="onlyOrder" name="onlyother" value="false" checked="checked" />
+    				<label>No</label> | 
+    				<input type="radio" class="required" id="onlyOrder" name="onlyother" value="true" />
+    				<label>Yes</label>
+					</dd>
     		</dl>
         <dl>
     			<dt>
     				<label for="cnType">Report Only<BR> Problems?</label>
     			</dt>
     			<dd>
-    				<ul>
-    					<li><input type="radio" class="required" id="onlyProblems" name="onlyproblems" value="false" checked="checked" />
-    						<label>No</label>
-    					</li>
-    					<li><input type="radio" class="required" id="onlyProblems" name="onlyproblems" value="true" />
-    						<label>Yes</label>
-    					</li>
-    				</ul>
-    						</dd>
+    				<input type="radio" class="required" id="onlyProblems" name="onlyproblems" value="false" checked="checked" />
+    				<label>No</label> | 
+						<input type="radio" class="required" id="onlyProblems" name="onlyproblems" value="true" />
+    				<label>Yes</label>
+    			</dd>
     		</dl>
 			<dl>
     			<dt>
     				<label for="cnType">Clear Cache?</label>
     			</dt>
     			<dd>
-    				<ul>
-    					<li><input type="radio" class="required" id="clearCache" name="clearCache" value="false" checked="checked" />
-    						<label>No</label>
+    					<input type="radio" class="required" id="clearCache" name="clearCache" value="false" checked="checked" />
+    					<label>No</label> | 
+    					<input type="radio" class="required" id="clearCache" name="clearCache" value="true" />
+    					<label>Yes</label>
     					</li>
-    					<li><input type="radio" class="required" id="clearCache" name="clearCache" value="true" />
-    						<label>Yes</label>
-    					</li>
-    				</ul>
-    						</dd>
+    			</dd>
     		</dl>
     		<div id="submit_buttons">
     			<input type="submit" name="submit"/>
