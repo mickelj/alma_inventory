@@ -433,6 +433,10 @@ p[data-value]:after {
 			<input type="hidden" name="itemType" value="BOOK">
 			<input type="hidden" name="policy" value="UniqueLocations">
 			<input type="hidden" name="location" value="USTACKS">
+			<input type="hidden" name="onlyorder" value="false">
+			<input type="hidden" name="onlyother" value="false">
+			<input type="hidden" name="onlyproblems" value="true">
+			<input type="hidden" name="clearCache" value="true">
 			<dl>
     			<dt>
     				<label for="flie">Barcode XLSX FIle:</label>
@@ -450,53 +454,8 @@ p[data-value]:after {
     				</select>
     			</dd>
     		</dl>
-        <dl>
-    			<dt>
-    				<label for="cnType">Only Report<BR>CN Order Problems?</label>
-    			</dt>
-    			<dd>
-    				<input type="radio" class="required" id="onlyOrder" name="onlyorder" value="false" checked="checked" />
-    				<label>No</label>
-    				<input type="radio" class="required" id="onlyOrder" name="onlyorder" value="true" />
-    				<label>Yes</label>
-					</dd>
-    		</dl>
-        <dl>
-    			<dt>
-    				<label for="cnType">Only Report<BR>Problems Other Than CN?</label>
-    			</dt>
-    			<dd>
-    				<input type="radio" class="required" id="onlyOrder" name="onlyother" value="false" checked="checked" />
-    				<label>No</label> | 
-    				<input type="radio" class="required" id="onlyOrder" name="onlyother" value="true" />
-    				<label>Yes</label>
-					</dd>
-    		</dl>
-        <dl>
-    			<dt>
-    				<label for="cnType">Report Only<BR> Problems?</label>
-    			</dt>
-    			<dd>
-    				<input type="radio" class="required" id="onlyProblems" name="onlyproblems" value="false" checked="checked" />
-    				<label>No</label> | 
-						<input type="radio" class="required" id="onlyProblems" name="onlyproblems" value="true" />
-    				<label>Yes</label>
-    			</dd>
-    		</dl>
-			<dl>
-    			<dt>
-    				<label for="cnType">Clear Cache?</label>
-    			</dt>
-    			<dd>
-    					<input type="radio" class="required" id="clearCache" name="clearCache" value="false" checked="checked" />
-    					<label>No</label> | 
-    					<input type="radio" class="required" id="clearCache" name="clearCache" value="true" />
-    					<label>Yes</label>
-    					</li>
-    			</dd>
-    		</dl>
     		<div id="submit_buttons">
-    			<input type="submit" name="submit"/>
+    			<input class="btn btn-primary" type="submit" name="submit"/>
     		</div>
     		</form>
     </div>
