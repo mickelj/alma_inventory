@@ -404,7 +404,7 @@ if (isset($_POST['submit'])) {
         $csv_output_filename = 'ShelfList_' . $_POST['library'] . '_' . $_POST['location'] . '_' . substr($first_call, 0, 4) . '_' . substr($last_call, 0, 4) . '_' . date('Ymd') . '.csv';
           echo "<div class='col-md-6'><a class='btn btn-sm btn-info' href=" . "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php" . ">Run New File</a></div> <div class='col-md-6'><a class='btn btn-sm btn-info' href='cache/output/" . $csv_output_filename . "'>Download File</a> " . $csv_output_filename . "</div>";
         echo "</div>";
-        echo "<table class='table table-hover table-bordered table-condensed'><tr><td>";
+        echo "<table class='table table-hover table-bordered table-condensed spacer'><tr><td>";
         echo '<B>' . $orderProblemCount . '</b> Order Problems Found</td>';
         echo '<td>' . $cnTypeProblemCount . '</b> Call Number Type Problems Found</td>';
         echo '<td>' . $tempProblemCount . '</b> Temp Location Problems Found</td>';
@@ -452,11 +452,10 @@ function outputRecords($output){
   echo "<table id='CNTable' class='table table-hover table-striped table-bordered table-condensed tablesorter'>";
   echo "<thead>";
   echo "<tr>";
-  echo "<th>Correct<BR>Order</th>";
+  echo "<th>Correct Order</th>";
   echo "<th>Correct CN Order</th>";
-  //  echo "<th>Norm CN Order</th>";
   echo "<th>Title</th>";
-  echo "<th>Where<BR>Scanned</th>";
+  echo "<th>Order Scanned</th>";
   echo "<th>Problem</th>";
   echo "<th>Barcode</th>";
   echo "</tr>";
